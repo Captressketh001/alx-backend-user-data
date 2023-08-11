@@ -18,6 +18,7 @@ auth_type = getenv('AUTH_TYPE', 'auth')
 if auth_type == 'auth':
     auth = Auth()
 
+
 @app.errorhandler(404)
 def not_found(error) -> str:
     """ Not found handler
@@ -43,7 +44,8 @@ def forbidden(error) -> str:
 def user_auth():
     """User filtering"""
     if auth:
-        excluded_paths = ['/api/v1/status/',
+        excluded_paths = [
+            '/api/v1/status/',
             '/api/v1/unauthorized/',
             '/api/v1/forbidden/'
         ]
@@ -54,7 +56,7 @@ def user_auth():
                 abort(401)
             if user is None:
                 abort(403)
-    
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
