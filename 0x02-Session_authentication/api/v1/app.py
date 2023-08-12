@@ -54,10 +54,10 @@ def user_auth():
         ]
         if auth.require_auth(request.path, excluded_paths):
             auth_headers = auth.authorization_header(request)
-            user = auth.current_user(request)
+            request.current_user = auth.current_user(request)
             if auth_headers is None:
                 abort(401)
-            if user is None:
+            if request.current_user is None:
                 abort(403)
 
 
