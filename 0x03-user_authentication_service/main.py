@@ -11,20 +11,20 @@ from sqlalchemy.orm.exc import NoResultFound
 
 my_db = DB()
 
-user = my_db.add_user("tes@test.com", "PwdHashed")
-print(user.id)
+# user = my_db.add_user("tes@test.com", "PwdHashed")
+# print(user.id)
 
-find_user = my_db.find_user_by(email="tes@test.com")
-print(find_user.id)
+find_user = my_db.update_user(id=1)
+print(find_user)
 
-try:
-    find_user = my_db.find_user_by(email="test@test.com")
-    print(find_user.id)
-except NoResultFound:
-    print("Not found")
+# try:
+#     find_user = my_db.find_user_by(email="test@test.com")
+#     print(find_user.id)
+# except NoResultFound:
+#     print("Not found")
 
-try:
-    find_user = my_db.find_user_by(no_email="test@test.com")
-    print(find_user.id)
-except InvalidRequestError:
-    print("Invalid")        
+# try:
+#     find_user = my_db.find_user_by(no_email="test@test.com")
+#     print(find_user.id)
+# except InvalidRequestError:
+#     print("Invalid")        
