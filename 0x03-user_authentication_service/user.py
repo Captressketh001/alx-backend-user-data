@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""User"""
+""" SQLAlchemy model named User"""
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
@@ -9,7 +9,7 @@ Base = declarative_base()
 
 
 class User(Base):
-    """User Class"""
+    """User Class with SQLAlchemy"""
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
