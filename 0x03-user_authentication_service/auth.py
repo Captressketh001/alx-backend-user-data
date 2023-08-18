@@ -5,11 +5,13 @@ string arguments and returns bytes"""
 import bcrypt
 from db import DB
 
+
 def _hash_password(password: str) -> str:
     """Hashing and salting input password"""
     hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
 
     return hashed
+
 
 class Auth:
     """Auth class to interact with the authentication database.
